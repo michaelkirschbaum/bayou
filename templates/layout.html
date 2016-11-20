@@ -8,12 +8,13 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
       #deck { width: 150px; height: 210px; padding: 0.5em; }
+      #card { width: 150px; height: 210px; padding: 0.5em; }
     </style>
     <script>
       $(document).ready(function() {
         $( "#deck" ).click(function() {
           $.get(window.location.href + "/draw", function(data, status) {
-            alert(data);
+            $("body").append("<div id=\"card\" class=\"ui-widget-content\">" + data + "</div>");
           });
         });
       });
