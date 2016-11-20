@@ -10,12 +10,27 @@
       #deck { width: 150px; height: 210px; padding: 0.5em; }
     </style>
     <script>
-    $( function() {
-      $( "#deck" ).button();
-    } );
-    $( function() {
-      $( "#card" ).draggable();
-    } );
+      $(document).ready(function() {
+        $("#deck").click(function() {
+          $("body").append("");
+        });
+      });
+
+      $(document).ready(function() {
+        $("#shuffle").click(function() {
+          $("body").append("");
+        });
+      });
+
+      $(document).ready(function() {
+        $("#new").click(function() {
+          $("body").append("");
+        });
+      });
+
+      $( function() {
+        $( "#deck" ).button();
+      } );
     </script>
   </head>
   <body>
