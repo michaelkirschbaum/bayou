@@ -12,8 +12,8 @@
     <script>
       $(document).ready(function() {
         $( "#deck" ).click(function() {
-          $.get("http://limitless-bayou.herokuapp.com/draw", function(data, status) {
-            alert(window.location.href);
+          $.get(window.location.href + "/draw", function(data, status) {
+            alert(data);
           });
         });
       });
