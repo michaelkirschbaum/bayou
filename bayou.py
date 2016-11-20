@@ -2,17 +2,25 @@
 
 import cherrypy
 import os
-from deck import Deck
 from jinja2 import Environment, FileSystemLoader
+from deck import Deck
 
 env = Environment(loader=FileSystemLoader('templates'))
 
+deck = Deck()
+
 class Bayou(object):
     def index(self):
-        deck = Deck()
-
         template = env.get_template('index.html')
-        return template.render(deck=deck)
+        return template.render()
+    index.exposed = True
+
+    def draw(self):
+        return deck.draw()
+    index.exposed = True
+
+    def shuffle(self):
+        pass
     index.exposed = True
 
 cherrypy.config.update({'server.socket_host': '0.0.0.0'})

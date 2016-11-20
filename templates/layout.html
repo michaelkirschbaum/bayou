@@ -8,43 +8,31 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
       #deck { width: 150px; height: 210px; padding: 0.5em; }
-      #card { width: 150px; height: 210px; padding: 0.5em; }
     </style>
     <script>
       $(document).ready(function() {
         $( "#deck" ).click(function() {
-          $( "body" ).append($("#draw_card").html());
+          $.get("http://limitless-bayou.herokuapp.com/draw", function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+          });
         });
       });
 
       $(document).ready(function() {
-        $( "#shuffle" ).click(function() {
-          $( "body" ).append($("#shuffle_deck").html());
-        });
+        $( "#shuffle" ).click(function() {});
       });
 
       $(document).ready(function() {
-        $( "#new" ).click(function() {
-          $( "body" ).append($("#new_deck").html());
-        });
+        $( "#new" ).click(function() {});
       });
 
       $(function() {
         $( "#deck" ).button();
       });
     </script>
-    <script id="draw_card" type="text/template">
-      {% block draw_card %}{% endblock %}
-    </script>
-    <script id="shuffle_deck" type="text/template">
-      {% block shuffle_deck %}{% endblock %}
-    </script>
-    <script id="new_deck" type="text/template">
-      {% block new_deck %}{% endblock %}
-    </script>
   </head>
   <body>
-    <button id="deck">Deck</button>
+    <div id="deck" class="ui-widget-content">Deck</div>
     <button id="shuffle">Shuffle</button>
     <button id="new">New</button>
   </body>

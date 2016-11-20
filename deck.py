@@ -28,3 +28,9 @@ class Deck(object):
 
     def shuffle(self):
         shuffle(self.cards)
+
+    def isEmpty(self):
+        if len(self.cards) == 0:
+            return True
+        else:
+            return False
