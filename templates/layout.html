@@ -12,7 +12,7 @@
     <script>
       $(document).ready(function() {
         $( "#deck" ).click(function() {
-          $.get("http://limitless-bayou.herokuapp.com/draw", function(data, status){
+          $.get("http://localhost:5000/draw", function(data, status) {
             alert("Data: " + data + "\nStatus: " + status);
           });
         });

@@ -7,20 +7,22 @@ from deck import Deck
 
 env = Environment(loader=FileSystemLoader('templates'))
 
-deck = Deck()
-
 class Bayou(object):
+    deck = Deck()
+
     def index(self):
         template = env.get_template('index.html')
         return template.render()
     index.exposed = True
 
     def draw(self):
-        return deck.draw()
+        card = self.deck.draw()
+
+        return card.suit
     draw.exposed = True
 
     def shuffle(self):
-        pass
+        self.deck.shuffle()
     shuffle.exposed = True
 
 cherrypy.config.update({'server.socket_host': '0.0.0.0'})
