@@ -1,9 +1,16 @@
 {% extends "layout.html" %}
 {% block shuffle_deck %}
+
 {% endblock %}
 
 {% block draw_card %}
+  <ul>
+    {% for card in deck.cards %}
+      <li>{{ card.number }} of {{ card.suit }}</li>
+    {% endfor %}
+  </ul>
 {% endblock %}
 
 {% block new_deck %}
+
 {% endblock %}

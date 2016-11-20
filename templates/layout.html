@@ -12,7 +12,7 @@
     <script>
       $(document).ready(function() {
         $( "#deck" ).click(function() {
-          $( "body" ).append("");
+          $( "body" ).append($("#draw_card").html());
         });
       });
 
@@ -32,13 +32,13 @@
         $( "#deck" ).button();
       });
     </script>
-    <script id="draw_card">
+    <script id="draw_card" type="text/template">
       {% block draw_card %}{% endblock %}
     </script>
-    <script id="shuffle_deck">
+    <script id="shuffle_deck" type="text/template">
       {% block shuffle_deck %}{% endblock %}
     </script>
-    <script id="new_deck">
+    <script id="new_deck" type="text/template">
       {% block new_deck %}{% endblock %}
     </script>
   </head>
