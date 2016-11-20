@@ -1,1 +1,8 @@
 {% extends "layout.html" %}
+{% block body %}
+  <ul>
+    {% for card in deck.cards %}
+      <li>{{ card.number}} of {{ card.suit }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

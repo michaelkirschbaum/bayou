@@ -12,7 +12,7 @@ class Bayou(object):
         deck = Deck()
 
         template = env.get_template('index.html')
-        return template.render()
+        return template.render(deck=deck)
     index.exposed = True
 
 cherrypy.config.update({'server.socket_host': '0.0.0.0'})
