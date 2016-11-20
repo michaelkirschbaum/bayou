@@ -17,11 +17,11 @@ class Bayou(object):
 
     def draw(self):
         return deck.draw()
-    index.exposed = True
+    draw.exposed = True
 
     def shuffle(self):
         pass
-    index.exposed = True
+    shuffle.exposed = True
 
 cherrypy.config.update({'server.socket_host': '0.0.0.0'})
 cherrypy.config.update({'server.socket_port': int(os.environ.get('PORT', '5000'))})
