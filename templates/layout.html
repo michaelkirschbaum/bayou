@@ -7,18 +7,17 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
-      #deck { width: 150px; height: 150px; padding: 0.5em; }
+      #deck { width: 150px; height: 210px; padding: 0.5em; }
     </style>
-  </head>
-  <body>
-    <div id="deck" class="ui-widget-content">
-      <p>Drag me around Sage</p>
-    </div>
-
     <script>
     $( function() {
-      $( "#deck" ).draggable();
+      $( "#deck" ).button();
     } );
     </script>
+  </head>
+  <body>
+    <button id="deck">Deck</button>
+    <button id="shuffle">Shuffle</button>
+    <button id="new">New Deck</button>
   </body>
 </html>
