@@ -11,26 +11,30 @@
     </style>
     <script>
       $(document).ready(function() {
-        $("#deck").click(function() {
-          $("body").append("");
+        $( "#deck" ).click(function() {
+          $( "body" ).append($("#cards").html());
         });
       });
 
       $(document).ready(function() {
-        $("#shuffle").click(function() {
-          $("body").append("");
+        $( "#shuffle" ).click(function() {
+          $( "body" ).append("");
         });
       });
 
       $(document).ready(function() {
-        $("#new").click(function() {
-          $("body").append("");
+        $( "#new" ).click(function() {
+          $( "body" ).append("");
         });
       });
 
       $( function() {
         $( "#deck" ).button();
       } );
+    </script>
+
+    <script id="cards" type="text/template">
+      {% block cards %}{% endblock %}
     </script>
   </head>
   <body>
