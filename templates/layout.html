@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
       #deck { width: 150px; height: 210px; padding: 0.5em; }
+      #card { width: 150px; height: 210px; padding: 0.5em; }
     </style>
     <script>
       $(document).ready(function() {
@@ -18,13 +19,13 @@
 
       $(document).ready(function() {
         $( "#shuffle" ).click(function() {
-          $( "body" ).append("");
+          $( "body" ).append($("#shuffle_deck").html());
         });
       });
 
       $(document).ready(function() {
         $( "#new" ).click(function() {
-          $( "body" ).append("");
+          $( "body" ).append($("#new_deck").html());
         });
       });
 

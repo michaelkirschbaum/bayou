@@ -21,8 +21,10 @@ class Deck(object):
         for _ in range(num_jokers):
             self.cards.append(Card("joker"))
 
-    def shuffle(self):
-        shuffle(self.cards)
+        self.shuffle()
 
     def draw(self):
         return self.cards.pop()
+
+    def shuffle(self):
+        shuffle(self.cards)
