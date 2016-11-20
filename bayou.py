@@ -18,7 +18,12 @@ class Bayou(object):
     def draw(self):
         card = self.deck.draw()
 
-        return card.suit
+        if isinstance(card.number, int) and card.suit is not None:
+            return str(card.number) + " of " + card.suit
+        elif card.suit is not None:
+            return card.number + " of " + card.suit
+        else:
+            return card.number
     draw.exposed = True
 
     def shuffle(self):
