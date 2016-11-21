@@ -15,11 +15,12 @@ class Bayou(object):
         return template.render()
     index.exposed = True
 
+    # return name of card
     def draw(self):
         try:
             card = self.deck.draw()
         except IndexError:
-            pass
+            return ""
         else:
             if isinstance(card.number, int) and card.suit is not None:
                 return str(card.number) + " of " + card.suit

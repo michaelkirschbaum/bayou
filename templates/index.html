@@ -13,8 +13,19 @@
       $(document).ready(function() {
         $( "#deck" ).click(function() {
           $.get(window.location.href + "/draw", function(data, status) {
-            $("#cards").append("<div id=\"card\" class=\"ui-widget-content\"><p>" + data + "</p></div>");
+            // prevent drawing from empty stack
+            if (!data) {
+              alert("Deck is empty.");
+            }
+            else {
+              // append div
+              $("#cards").append("<div id=\"card\" class=\"ui-widget-content\"><p>" + data + "</p></div>");
+            }
 
+            // randomize position of card
+            
+
+            // make cards movable
             $(function() {
               $( ".ui-widget-content" ).draggable();
             });
@@ -38,6 +49,7 @@
         });
       });
 
+      // make deck a button and movable
       $(function() {
         $( "#deck" ).button();
         $("#deck").draggable();
@@ -48,7 +60,6 @@
     <div id="deck" class="ui-widget-content">
       <p>Deck</p>
     </div>
-
     <button id="shuffle">Shuffle</button>
     <button id="new">New</button>
 
