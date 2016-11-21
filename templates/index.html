@@ -13,10 +13,10 @@
       $(document).ready(function() {
         $( "#deck" ).click(function() {
           $.get(window.location.href + "/draw", function(data, status) {
-            $("body").append("<div id=\"card\" class=\"ui-widget-content\"><p>" + data + "</p></div>");
+            $("#cards").append("<div id=\"card\" class=\"ui-widget-content\"><p>" + data + "</p></div>");
 
             $(function() {
-              $( "#card" ).draggable();
+              $( ".ui-widget-content" ).draggable();
             });
           });
         });
@@ -32,23 +32,26 @@
 
       $(document).ready(function() {
         $( "#new" ).click(function() {
-          $.get(window.location.href, function(data, status) {
-
+          $.get(window.location.href + "/new", function(data, status) {
+            $("#cards").empty();
           });
         });
       });
 
       $(function() {
         $( "#deck" ).button();
-        $( "#deck" ).draggable();
+        $("#deck").draggable();
       });
     </script>
   </head>
   <body>
     <div id="deck" class="ui-widget-content">
       <p>Deck</p>
-      <button id="shuffle">Shuffle</button>
-      <button id="new">New</button>
     </div>
+
+    <button id="shuffle">Shuffle</button>
+    <button id="new">New</button>
+
+    <div class="container" id="cards"></div>
   </body>
 </html>
