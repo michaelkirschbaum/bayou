@@ -1,16 +1,16 @@
 # README
 
-# Install dependencies
+## Install dependencies
 -----------
   'source venv/bin/activate'
 
   'pip install -r requirements'
 
-# Run tests
+## Run tests
 -----------
   './test.py'
 
-# Run
+## Run
 -----------
   './bayou.py'
 
