@@ -7,7 +7,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
-      .ui-widget-content {
+      #deck {
         width: 150px;
         height: 210px;
         padding: 0.5em;
@@ -22,15 +22,20 @@
               alert("Deck is empty.");
             }
             else {
-              // randomize coordinates of new div
-              var x_coor = Math.random() * ($(window).innerWidth() - 150);
-              var y_coor = Math.random() * ($(window).innerHeight() - 210);
+              // create card
+              var card_width = 150;
+              var card_height = 210;
 
-              // append div
+              // randomize coordinates of new card
+              var x_coor = Math.random() * ($(document).innerWidth() - card_width);
+              var y_coor = Math.random() * ($(document).innerHeight() - card_height);
+
+              // append card
               $("#cards").append($("<div class=\"ui-widget-content\"><p>" + data + "</p></div>")
-                .css({'position': 'fixed', 'left': x_coor + 'px', 'top': y_coor + 'px'}));
+                .css({'position': 'absolute', 'left': x_coor + 'px', 'top': y_coor + 'px',
+                      'width': card_width + 'px', 'height': card_height + 'px', 'padding': '0.5em', }));
 
-              // allow user to move div
+              // allow user to move card
               $(function() {
                 $( ".ui-widget-content" ).draggable();
               });
@@ -58,6 +63,7 @@
       // make deck a button and movable
       $(function() {
         $( "#deck" ).button();
+        $("#deck").draggable();
       });
     </script>
   </head>
