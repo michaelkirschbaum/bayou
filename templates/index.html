@@ -23,11 +23,12 @@
             }
             else {
               // randomize coordinates of new div
-              var x_coor = window.screen.width / 8;
-              var y_coor = window.screen.height / 8;
+              var x_coor = Math.random() * ($(window).innerWidth() - 150);
+              var y_coor = Math.random() * ($(window).innerHeight() - 210);
 
               // append div
-              $("#cards").append($("<div class=\"ui-widget-content\"><p>" + data + "</p></div>").css({'left': x_coor + 'px', 'top': y_coor + 'px', 'position': 'relative'}));
+              $("#cards").append($("<div class=\"ui-widget-content\"><p>" + data + "</p></div>")
+                .css({'position': 'fixed', 'left': x_coor + 'px', 'top': y_coor + 'px'}));
 
               // allow user to move div
               $(function() {
@@ -63,6 +64,7 @@
   <body>
     <div id="deck" class="ui-widget-content">
       <p>Deck</p>
+      <p>Click to draw</p>
     </div>
     <button id="shuffle">Shuffle</button>
     <button id="new">New</button>
