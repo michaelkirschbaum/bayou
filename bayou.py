@@ -16,14 +16,17 @@ class Bayou(object):
     index.exposed = True
 
     def draw(self):
-        card = self.deck.draw()
-
-        if isinstance(card.number, int) and card.suit is not None:
-            return str(card.number) + " of " + card.suit
-        elif card.suit is not None:
-            return card.number + " of " + card.suit
+        try:
+            card = self.deck.draw()
+        except IndexError:
+            pass
         else:
-            return card.number
+            if isinstance(card.number, int) and card.suit is not None:
+                return str(card.number) + " of " + card.suit
+            elif card.suit is not None:
+                return card.number + " of " + card.suit
+            else:
+                return card.number
     draw.exposed = True
 
     def shuffle(self):
