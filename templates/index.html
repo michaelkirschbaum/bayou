@@ -12,6 +12,10 @@
         height: 210px;
         padding: 0.5em;
       }
+      #buttons {
+        position: relative;
+        left: 30px;
+      }
     </style>
     <script>
       $(document).ready(function() {
@@ -33,7 +37,7 @@
               // append card
               $("#cards").append($("<div class=\"ui-widget-content\"><p>" + data + "</p></div>")
                 .css({'position': 'absolute', 'left': x_coor + 'px', 'top': y_coor + 'px',
-                      'width': card_width + 'px', 'height': card_height + 'px', 'padding': '0.5em', }));
+                      'width': card_width + 'px', 'height': card_height + 'px', 'padding': '0.5em'}));
 
               // allow user to move card
               $(function() {
@@ -64,16 +68,26 @@
       $(function() {
         $( "#deck" ).button();
         $("#deck").draggable();
+
+        // center buttons
+        var x_coor = ($(document).innerWidth() - 150) / 2;
+        var y_coor = ($(document).innerHeight() - 210) / 2;
+        $("#controls").css({'position': 'absolute', 'left': x_coor + 'px', 'top': y_coor + 'px'});
       });
     </script>
   </head>
   <body>
-    <div id="deck" class="ui-widget-content">
-      <p>Deck</p>
-      <p>Click to draw</p>
+    <div class="container" id="controls">
+      <div id="deck" class="ui-widget-content">
+        <p>Deck</p>
+        <p>click to draw</p>
+      </div>
+      <div class="container" id="buttons">
+        <button id="shuffle">Shuffle</button>
+        <button id="new">New</button>
+      </div>
     </div>
-    <button id="shuffle">Shuffle</button>
-    <button id="new">New</button>
+
     <div class="container" id="cards"></div>
   </body>
 </html>
