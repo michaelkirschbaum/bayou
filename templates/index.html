@@ -20,15 +20,15 @@
             else {
               // append div
               $("#cards").append("<div id=\"card\" class=\"ui-widget-content\"><p>" + data + "</p></div>");
+
+              // randomize position of div
+
+
+              // allow user to move div
+              $(function() {
+                $( ".ui-widget-content" ).draggable();
+              });
             }
-
-            // randomize position of card
-            
-
-            // make cards movable
-            $(function() {
-              $( ".ui-widget-content" ).draggable();
-            });
           });
         });
       });
